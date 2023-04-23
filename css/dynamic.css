@@ -50,6 +50,7 @@
   position: absolute;
   bottom: -100px;
   right: -100px;
+  opacity: 0;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.3);
   z-index: 2;
@@ -62,6 +63,7 @@
 .slide .side-content.active {
   bottom: 100px;
   right: 150px;
+  opacity: 1;
 }
 
 #prev {
