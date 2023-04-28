@@ -3,7 +3,8 @@ const prev = document.querySelector("#prev");
 const next = document.querySelector("#next");
 const slides = document.querySelectorAll(".slide");
 let autoSlide = true;
-let slideInterval = 1500;
+let slideTime = 4000;
+let slideInterval;
 const dots = document.querySelectorAll(".dot");
 const dot1 = document.querySelector(".dot1");
 const dot2 = document.querySelector(".dot2");
@@ -34,6 +35,16 @@ function prevSlide() {
     current.classList.remove("current");
     active.classList.remove("active");
   });
+
+  setTimeout(() => {
+    if (slides[0].classList.contains("current")) {
+      changeDot(1);
+    } else if (slides[1].classList.contains("current")) {
+      changeDot(2);
+    } else if (slides[2].classList.contains("current")) {
+      changeDot(3);
+    }
+  }, 100);
 }
 
 //Get Next SLide
@@ -64,6 +75,16 @@ function nextSlide() {
     current.classList.remove("current");
     active.classList.remove("active");
   });
+
+  setTimeout(() => {
+    if (slides[0].classList.contains("current")) {
+      changeDot(1);
+    } else if (slides[1].classList.contains("current")) {
+      changeDot(2);
+    } else if (slides[2].classList.contains("current")) {
+      changeDot(3);
+    }
+  }, 100);
 }
 
 function getDotAndSlide(e) {
@@ -78,11 +99,20 @@ function getDotAndSlide(e) {
 //Previous Button
 prev.addEventListener("click", (e) => {
   prevSlide();
+
+  if (autoSlide) {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, slideTime);
+  }
 });
 
 //Next Button
 next.addEventListener("click", (e) => {
   nextSlide();
+  if (autoSlide) {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, slideTime);
+  }
 });
 
 //dots click
@@ -117,6 +147,11 @@ dot1.onclick = function (e) {
     current.classList.remove("current");
     active.classList.remove("active");
   });
+
+  if (autoSlide) {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, slideTime);
+  }
 };
 
 dot2.onclick = function (e) {
@@ -147,6 +182,11 @@ dot2.onclick = function (e) {
     current.classList.remove("current");
     active.classList.remove("active");
   });
+
+  if (autoSlide) {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, slideTime);
+  }
 };
 
 dot3.onclick = function (e) {
@@ -177,13 +217,23 @@ dot3.onclick = function (e) {
     current.classList.remove("current");
     active.classList.remove("active");
   });
+
+  if (autoSlide) {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, slideTime);
+  }
 };
 
 //Activate auto sliding carousel
-const carousel = () => {
-  setInterval(() => {
-    if (autoSlide) {
-      nextSlide();
-    }
-  }, slideInterval);
-};
+if (autoSlide) {
+  slideInterval = setInterval(nextSlide, slideTime);
+}
+
+function changeDot(num) {
+  let classname = `.dot${num}`;
+  const activeDot = document.querySelector(".active-dot");
+  activeDot.classList.remove("active-dot");
+
+  const currentDot = document.querySelector(classname);
+  currentDot.classList.add("active-dot");
+}
