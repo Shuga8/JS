@@ -5,9 +5,9 @@ const slides = document.querySelectorAll(".slide");
 let autoSlide = true;
 let slideInterval = 1500;
 const dots = document.querySelectorAll(".dot");
-const dot1 = document.querySelectorAll(".dot1");
-const dot2 = document.querySelectorAll(".dot2");
-const dot3 = document.querySelectorAll(".dot3");
+const dot1 = document.querySelector(".dot1");
+const dot2 = document.querySelector(".dot2");
+const dot3 = document.querySelector(".dot3");
 
 //Get Previous Slide
 function prevSlide() {
@@ -75,40 +75,6 @@ function getDotAndSlide(e) {
   clickedDot.classList.add("active-dot");
 }
 
-//when first dot is clicked
-dot1.onclick = (e) => {
-  //Get current element class
-  const current = document.querySelector(".current");
-  //Remove current element class
-  current.classList.remove("current");
-
-  //get active class
-  const active = document.querySelector(".active");
-
-  //remove active class
-  active.classList.remove("active");
-
-  //click dot
-  let clickedDot = e.target;
-
-  //get active dot
-  const activeDot = document.querySelector(".active-dot");
-
-  //remove active dot class
-  activeDot.classList.remove("active-dot");
-
-  //add active dot class to clicked dot
-  clickedDot.classList.add("active-dot");
-
-  //add current class to first slide
-  slides[0].classList.add("current");
-
-  //add active class to first child node
-  setTimeout(() => {
-    current.nextElementSibling.childNodes[0].classList.add("active");
-  }, 200);
-};
-
 //Previous Button
 prev.addEventListener("click", (e) => {
   prevSlide();
@@ -123,6 +89,95 @@ next.addEventListener("click", (e) => {
 dots.forEach(function (dot) {
   dot.addEventListener("click", getDotAndSlide);
 });
+
+dot1.onclick = function (e) {
+  let clickedDot = e.target;
+
+  const activeDot = document.querySelector(".active-dot");
+  activeDot.classList.remove("active-dot");
+
+  clickedDot.classList.add("active-dot");
+  //Get current element class
+  const current = document.querySelector(".current");
+  //Remove current element class
+  current.classList.remove("current");
+
+  //Get active element class
+  const active = document.querySelector(".active");
+  //Remove active class
+  active.classList.remove("active");
+
+  slides[0].classList.add("current");
+
+  setTimeout(() => {
+    slides[0].childNodes[1].classList.add("active");
+  }, 200);
+
+  setTimeout(() => {
+    current.classList.remove("current");
+    active.classList.remove("active");
+  });
+};
+
+dot2.onclick = function (e) {
+  let clickedDot = e.target;
+
+  const activeDot = document.querySelector(".active-dot");
+  activeDot.classList.remove("active-dot");
+
+  clickedDot.classList.add("active-dot");
+
+  //Get current element class
+  const current = document.querySelector(".current");
+  //Remove current element class
+  current.classList.remove("current");
+
+  //Get active element class
+  const active = document.querySelector(".active");
+  //Remove active class
+  active.classList.remove("active");
+
+  slides[1].classList.add("current");
+
+  setTimeout(() => {
+    slides[1].childNodes[1].classList.add("active");
+  }, 200);
+
+  setTimeout(() => {
+    current.classList.remove("current");
+    active.classList.remove("active");
+  });
+};
+
+dot3.onclick = function (e) {
+  let clickedDot = e.target;
+
+  const activeDot = document.querySelector(".active-dot");
+  activeDot.classList.remove("active-dot");
+
+  clickedDot.classList.add("active-dot");
+
+  //Get current element class
+  const current = document.querySelector(".current");
+  //Remove current element class
+  current.classList.remove("current");
+
+  //Get active element class
+  const active = document.querySelector(".active");
+  //Remove active class
+  active.classList.remove("active");
+
+  slides[2].classList.add("current");
+
+  setTimeout(() => {
+    slides[2].childNodes[1].classList.add("active");
+  }, 200);
+
+  setTimeout(() => {
+    current.classList.remove("current");
+    active.classList.remove("active");
+  });
+};
 
 //Activate auto sliding carousel
 const carousel = () => {
