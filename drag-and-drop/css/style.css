@@ -1,0 +1,12 @@
+body {
+  background: darksalmon;
+}
+
+.fill {
+  background: url(../img/dragimg.jpg);
+  position: relative;
+  height: 150px;
+  width: 150px;
+  top: 5px;
+  left: 5px;
+}
