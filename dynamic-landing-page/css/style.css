@@ -31,3 +31,7 @@
   text-decoration: none;
   padding: 1rem;
 }
+
+#toggle-icon {
+  display: none;
+}

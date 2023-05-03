@@ -1,20 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Franklin Gothic Medium";
-  transition: 0.4s ease-in-out;
-}
-
 #slideshow-container {
   width: 100%;
-  height: 100vh;
+  height: 60vh;
   position: relative;
 }
 
 .slideshow {
   width: 100%;
-  height: 100vh;
+  height: 60vh;
 }
 
 .slide {
@@ -32,17 +24,17 @@
 }
 
 .slide:first-child {
-  background: url("../imgs/lost-places-1928727_1920.jpg") no-repeat center
-    center / cover;
-}
-
-.slide:nth-child(2) {
-  background: url("../imgs/night-3896104_1920.jpg") no-repeat center center /
+  background: url("../imgs/stairs-4138259_1920.jpg") no-repeat center center /
     cover;
 }
 
+.slide:nth-child(2) {
+  background: url("../imgs/hd-wallpaper-3129908_1920.jpg") no-repeat center
+    center / cover;
+}
+
 .slide:last-child {
-  background: url("../imgs/villa-3237114_1920.jpg") no-repeat center center /
+  background: url("../imgs/fantasy-2925212_1920.jpg") no-repeat center center /
     cover;
 }
 
@@ -62,7 +54,7 @@
 .slide .side-content h3 {
   font-size: 2rem;
   text-transform: uppercase;
-  color: #c47805;
+  color: #036e86;
   letter-spacing: 2px;
   font-weight: 700;
   text-shadow: 1px 0px 2px #aaa, 0px -2px 2px #aaa;
@@ -70,7 +62,7 @@
 
 .slide .side-content p {
   font-size: 1.1rem;
-  color: #f00;
+  color: rgb(104, 7, 137);
   text-shadow: 1px 0px 2px #aaa, 0px -2px 2px #aaa;
 }
 
@@ -84,46 +76,46 @@
   position: absolute;
   top: 50%;
   left: 20px;
-  padding: 1rem;
+  padding: 0.5rem 0.7rem;
   border: none;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(62, 223, 241, 0.5);
   color: #fff;
   cursor: pointer;
   font-size: 1.2rem;
-  box-shadow: 2px 0px 2px rgba(255, 255, 255, 0.6);
+  box-shadow: 2px 0px 0px rgba(255, 255, 255, 0.6);
 }
 
 #prev:active {
   background: #ddd;
   color: #333;
-  box-shadow: inset 2px 0px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 2px 0px 0px rgba(0, 0, 0, 0.3);
 }
 
 #next {
   position: absolute;
   top: 50%;
   right: 20px;
-  padding: 1rem;
+  padding: 0.5rem 0.7rem;
   border: none;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(62, 223, 241, 0.5);
   color: #fff;
   cursor: pointer;
   font-size: 1.2rem;
-  box-shadow: -2px 0px 2px rgba(255, 255, 255, 0.6);
+  box-shadow: -2px 0px 0px rgba(255, 255, 255, 0.6);
 }
 
 #next:active {
   background: #ddd;
   color: #333;
-  box-shadow: inset -2px 0px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: inset -2px 0px 0px rgba(0, 0, 0, 0.3);
 }
 
 .circles {
   position: absolute;
-  width: 80px;
+  width: 65px;
   left: 50%;
   transform: translate(-50%, -50%);
-  bottom: 50px;
+  bottom: 30px;
   display: flex;
   justify-content: space-between;
 }
@@ -132,17 +124,16 @@
   width: 17px;
   height: 17px;
   background: transparent;
-  border: 2px solid rgba(0, 0, 0, 0.9);
+  border: 2px solid rgba(20, 24, 251, 0.9);
   border-radius: 10px;
   cursor: pointer;
 }
 
 .dot.active-dot {
   background-color: #fff;
-  border: 2px solid #ddd;
+  border: 2px solid rgba(142, 171, 247, 0.9);
 }
 
-/* Media Queries */
 @media (max-width: 600px) {
   .slide .side-content h3 {
     font-size: 1.4rem;

@@ -2,7 +2,7 @@
 const prev = document.querySelector("#prev");
 const next = document.querySelector("#next");
 const slides = document.querySelectorAll(".slide");
-let autoSlide = false;
+let autoSlide = true;
 let slideTime = 4000;
 let slideInterval;
 const dots = document.querySelectorAll(".dot");
@@ -117,10 +117,20 @@ next.addEventListener("click", (e) => {
 
 //dots click
 dots.forEach(function (dot) {
-  dot.addEventListener("click", getDotAndSlide);
+  dot.addEventListener("click", (e) => {
+    if (autoSlide) {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(nextSlide, slideTime);
+    }
+    getDotAndSlide(e);
+  });
 });
 
 dot1.onclick = function (e) {
+  if (autoSlide) {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, slideTime);
+  }
   let clickedDot = e.target;
 
   const activeDot = document.querySelector(".active-dot");
@@ -155,6 +165,11 @@ dot1.onclick = function (e) {
 };
 
 dot2.onclick = function (e) {
+  if (autoSlide) {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, slideTime);
+  }
+
   let clickedDot = e.target;
 
   const activeDot = document.querySelector(".active-dot");
@@ -190,6 +205,10 @@ dot2.onclick = function (e) {
 };
 
 dot3.onclick = function (e) {
+  if (autoSlide) {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, slideTime);
+  }
   let clickedDot = e.target;
 
   const activeDot = document.querySelector(".active-dot");
